@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>CryptoNexus | Real-Time Crypto Trading Terminal by Ifeanyi Nwambeke</title>
+<meta name="title" content="CryptoNexus | Real-Time Crypto Trading Terminal by Ifeanyi Nwambeke">
+<meta name="description" content="Developed by Ifeanyi Nwambeke, CryptoNexus is a professional trading terminal for Bitcoin, Ethereum, and 100+ digital assets featuring real-time market data.">
+<meta name="keywords" content="Ifeanyi Nwambeke, Nwambeke Ifeanyi, crypto trading, bitcoin price live, CryptoNexus terminal, web developer Abakaliki">
+<meta name="author" content="Ifeanyi Nwambeke">
+
+<meta property="og:title" content="CryptoNexus Terminal | Portfolio of Ifeanyi Nwambeke">
+<meta property="og:description" content="Explore CryptoNexus, a high-performance crypto market terminal developed by Ifeanyi Nwambeke.">
+
+<meta property="twitter:title" content="CryptoNexus | Developed by Ifeanyi Nwambeke">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f8fafc; width: 100%; overflow-x: hidden; }
+        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .gradient-text { background: linear-gradient(135deg, #34d399 0%, #a78bfa 100%); -webkit-text-fill-color: transparent; }
+        .mobile-menu-active { transform: translateX(0) !important; }
+        .no-wrap { white-space: nowrap; }
+        /* Smooth transition for row hover */
+        .market-row { transition: background-color 0.2s ease; }
+    </style>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "CryptoNexus",
+  "operatingSystem": "WEB",
+  "applicationCategory": "FinanceApplication",
+  "description": "A real-time cryptocurrency trading terminal and market data aggregator.",
+  "author": {
+    "@type": "Person",
+    "name": "Ifeanyi Nwambeke",
+    "alternateName": "Nwambeke Ifeanyi",
+    "url": "https://yourdomain.com",
+    "jobTitle": "Full-Stack Web Developer",
+    "description": "Professional web developer specializing in MERN stack and financial tech."
+  }
+}
+</script>
+</head>
+<body class="antialiased">
+
+    <nav class="fixed w-full z-[100] glass py-3 px-4 md:px-8 flex justify-between items-center transition-all duration-300" id="navbar">
+        <div class="flex items-center gap-2">
+            <i data-lucide="zap" class="text-emerald-400 w-5 h-5 fill-emerald-400"></i>
+            <span class="text-lg md:text-xl font-black tracking-tighter uppercase italic">Crypto<span class="text-emerald-400">Nexus</span></span>
+        </div>
+
+        <div class="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest">
+            <a href="#markets" class="hover:text-emerald-400 transition">Markets</a>
+            <a href="#features" class="hover:text-emerald-400 transition">Features</a>
+            <a href="#" class="hover:text-emerald-400 transition">Exchange</a>
+        </div>
+
+        <div class="flex items-center gap-2">
+            <button class="hidden sm:block bg-emerald-500 hover:bg-emerald-400 text-slate-950 px-5 py-2 rounded-lg font-bold text-xs transition shadow-lg shadow-emerald-500/20">
+                Trade Now
+            </button>
+            <button id="menu-toggle" class="md:hidden p-2 text-gray-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="fixed inset-0 z-[150] bg-slate-950 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-8">
+        <div class="flex justify-between items-center mb-12">
+            <span class="text-xl font-black italic uppercase text-emerald-400">CryptoNexus</span>
+            <button id="menu-close" class="p-2 bg-white/5 rounded-full"><i data-lucide="x"></i></button>
+        </div>
+        <div class="flex flex-col gap-6 text-3xl font-black uppercase italic text-white">
+            <a href="#markets" class="mobile-link hover:text-emerald-400 transition">Markets</a>
+            <a href="#features" class="mobile-link hover:text-emerald-400 transition">Features</a>
+            <a href="#" class="mobile-link hover:text-emerald-400 transition">Exchange</a>
+        </div>
+        <button class="mt-auto bg-emerald-500 text-slate-950 w-full py-4 rounded-xl font-bold text-lg">Launch Terminal</button>
+    </div>
+
+    <section class="relative pt-36 pb-20 px-4 text-center">
+        <div class="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-[500px] h-[500px] bg-emerald-500/10 blur-[120px] rounded-full"></div>
+        <div class="relative z-10 max-w-4xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass mb-6 text-[10px] font-bold text-emerald-400 tracking-widest" data-aos="fade-down">
+                <span class="h-1.5 w-1.5 bg-emerald-500 rounded-full animate-pulse"></span> NETWORK LIVE
+            </div>
+            <h1 class="text-5xl md:text-8xl font-black mb-6 leading-[0.85] uppercase tracking-tighter" data-aos="fade-up">
+                Trade the <br><span class="gradient-text">Future.</span>
+            </h1>
+            <p class="text-gray-400 text-sm md:text-lg mb-10 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100">Pro-grade liquidity and execution for the decentralized economy.</p>
+        </div>
+    </section>
+
+    <section id="markets" class="py-6 px-2 md:px-6 max-w-6xl mx-auto">
+        <div class="flex justify-between items-end mb-6 px-2">
+            <h2 class="text-2xl font-black uppercase italic leading-none">Market<br><span class="text-emerald-400">Live</span></h2>
+            <div class="text-[9px] text-gray-500 uppercase font-bold tracking-[0.2em] italic">Auto-Sync Enabled</div>
+        </div>
+        
+        <div class="glass rounded-2xl overflow-hidden border border-white/5 shadow-2xl">
+            <table class="w-full text-left table-fixed">
+                <thead class="bg-white/5 text-[9px] md:text-[11px] uppercase text-gray-500 font-bold tracking-widest">
+                    <tr>
+                        <th class="p-3 md:p-6 w-[40%]">Asset</th>
+                        <th class="p-3 md:p-6 w-[30%] text-right">Price</th>
+                        <th class="p-3 md:p-6 w-[30%] text-right">24h %</th>
+                        <th class="hidden md:table-cell p-6 text-right">Market Cap</th>
+                    </tr>
+                </thead>
+                <tbody id="crypto-table-body" class="text-xs md:text-base">
+                    </tbody>
+            </table>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        lucide.createIcons();
+        AOS.init({ duration: 800, once: true });
+
+        // Mobile Navigation
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        const toggleMenu = () => mobileMenu.classList.toggle('mobile-menu-active');
+        menuToggle.addEventListener('click', toggleMenu);
+        menuClose.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Data Fetching
+        async function fetchPrices() {
+            const tableBody = document.getElementById('crypto-table-body');
+            try {
+                const res = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1');
+                const data = await res.json();
+                tableBody.innerHTML = '';
+                
+                data.forEach(coin => {
+                    const isPos = coin.price_change_percentage_24h >= 0;
+                    tableBody.innerHTML += `
+                        <tr class="market-row border-t border-white/5 hover:bg-white/5 group">
+                            <td class="p-3 md:p-6 flex items-center gap-3 overflow-hidden">
+                                <img src="${coin.image}" class="w-5 h-5 md:w-8 md:h-8 rounded-full shadow-sm" alt="${coin.name}">
+                                <div class="min-w-0">
+                                    <p class="font-black text-[10px] md:text-sm uppercase leading-none mb-0.5">${coin.symbol}</p>
+                                    <p class="text-[8px] text-gray-500 uppercase font-bold truncate hidden sm:block">${coin.name}</p>
+                                </div>
+                            </td>
+                            <td class="p-3 md:p-6 text-right font-mono font-bold text-[10px] md:text-sm no-wrap">$${coin.current_price.toLocaleString()}</td>
+                            <td class="p-3 md:p-6 text-right font-bold text-[10px] md:text-sm ${isPos ? 'text-emerald-400' : 'text-rose-400'} no-wrap">
+                                ${isPos ? '▲' : '▼'} ${Math.abs(coin.price_change_percentage_24h).toFixed(2)}%
+                            </td>
+                            <td class="hidden md:table-cell p-6 text-right text-gray-500 font-mono text-xs">
+                                $${(coin.market_cap / 1e9).toFixed(2)}B
+                            </td>
+                        </tr>
+                    `;
+                });
+                lucide.createIcons();
+            } catch (e) {
+                tableBody.innerHTML = '<tr><td colspan="3" class="p-10 text-center text-emerald-500 text-[10px] font-bold">RE-ESTABLISHING CONNECTION...</td></tr>';
+            }
+        }
+
+        fetchPrices();
+        setInterval(fetchPrices, 60000);
+
+        window.onscroll = () => {
+            const nav = document.getElementById("navbar");
+            window.scrollY > 20 ? nav.classList.add("py-2", "bg-slate-950/90") : nav.classList.remove("py-2", "bg-slate-950/90");
+        };
+    </script>
+</body>
+</html>
